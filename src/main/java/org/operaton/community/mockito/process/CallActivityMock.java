@@ -44,7 +44,7 @@ public class CallActivityMock implements DeployProcess.BpmnModelInstanceResource
   public CallActivityMock(final String processId, final MockedModelConfigurer modelConfigurer) {
     this.processId = processId;
     ProcessBuilder processBuilder = Bpmn.createExecutableProcess(processId)
-      .camundaHistoryTimeToLive(1);
+      .operatonHistoryTimeToLive(1);
     if (modelConfigurer != null) {
       modelConfigurer.setProcessModelAttributes(processBuilder);
     }
@@ -124,7 +124,7 @@ public class CallActivityMock implements DeployProcess.BpmnModelInstanceResource
    */
   public CallActivityMock onExecutionDo(final String serviceId, final Consumer<DelegateExecution> consumer) {
     flowNodeBuilder = flowNodeBuilder.serviceTask(serviceId)
-      .camundaDelegateExpression("${id}".replace("id", serviceId));
+      .operatonDelegateExpression("${id}".replace("id", serviceId));
 
     registerJavaDelegateMock(serviceId, (JavaDelegate) consumer::accept);
     return this;

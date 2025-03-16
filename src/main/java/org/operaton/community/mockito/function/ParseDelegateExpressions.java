@@ -1,9 +1,9 @@
 package org.operaton.community.mockito.function;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
-import static org.operaton.bpm.model.bpmn.impl.BpmnModelConstants.CAMUNDA_ATTRIBUTE_DELEGATE_EXPRESSION;
-import static org.operaton.bpm.model.bpmn.impl.BpmnModelConstants.CAMUNDA_ELEMENT_EXECUTION_LISTENER;
-import static org.operaton.bpm.model.bpmn.impl.BpmnModelConstants.CAMUNDA_ELEMENT_TASK_LISTENER;
+import static org.operaton.bpm.model.bpmn.impl.BpmnModelConstants.OPERATON_ATTRIBUTE_DELEGATE_EXPRESSION;
+import static org.operaton.bpm.model.bpmn.impl.BpmnModelConstants.OPERATON_ELEMENT_EXECUTION_LISTENER;
+import static org.operaton.bpm.model.bpmn.impl.BpmnModelConstants.OPERATON_ELEMENT_TASK_LISTENER;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,12 +28,12 @@ import org.w3c.dom.NodeList;
 public class ParseDelegateExpressions implements Function<URL, List<Pair<ParseDelegateExpressions.ExpressionType, String>>> {
 
   public static enum ExpressionType {
-    EXECUTION_LISTENER(CAMUNDA_ELEMENT_EXECUTION_LISTENER) {
+    EXECUTION_LISTENER(OPERATON_ELEMENT_EXECUTION_LISTENER) {
       @Override
       public void registerMock(final String name) {
         DelegateExpressions.registerExecutionListenerMock(name);
       }
-    }, TASK_LISTENER(CAMUNDA_ELEMENT_TASK_LISTENER) {
+    }, TASK_LISTENER(OPERATON_ELEMENT_TASK_LISTENER) {
       @Override
       public void registerMock(final String name) {
         DelegateExpressions.registerTaskListenerMock(name);
@@ -80,8 +80,8 @@ public class ParseDelegateExpressions implements Function<URL, List<Pair<ParseDe
 
             // TODO: this is not nice, but I cannot get getNamedItemNS("*", ...) to work properly
             Node delegateExpression = Optional
-              .ofNullable(attributes.getNamedItem(CAMUNDA_ATTRIBUTE_DELEGATE_EXPRESSION))
-              .orElse(attributes.getNamedItem("camunda:"+CAMUNDA_ATTRIBUTE_DELEGATE_EXPRESSION));
+              .ofNullable(attributes.getNamedItem(OPERATON_ATTRIBUTE_DELEGATE_EXPRESSION))
+              .orElse(attributes.getNamedItem("camunda:"+OPERATON_ATTRIBUTE_DELEGATE_EXPRESSION));
 
             if (delegateExpression != null) {
               add(Pair.of(type, extractDelegateExpressionName(delegateExpression.getTextContent())));
