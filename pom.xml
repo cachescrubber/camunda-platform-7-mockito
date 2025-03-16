@@ -38,6 +38,7 @@
     <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
     <!-- disable javadoc linter for JDK8 to not fail on incomplete javadoc -->
     <additionalparam>-Xdoclint:none</additionalparam>
+    <operaton.version>1.0.0-beta-3</operaton.version>
   </properties>
 
   <dependencyManagement>
@@ -45,7 +46,7 @@
       <dependency>
         <groupId>org.operaton.bpm</groupId>
         <artifactId>operaton-bom</artifactId>
-        <version>1.0.0-beta-2</version>
+        <version>${operaton.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
