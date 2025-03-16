@@ -114,7 +114,7 @@ public class CallActivityMockExampleTest {
 
     final String waitForMessageId = "waitForMessage";
     final BpmnModelInstance waitForMessage = Bpmn.createExecutableProcess(waitForMessageId)
-      .camundaHistoryTimeToLive(1)
+      .operatonHistoryTimeToLive(1)
       .startEvent("start")
       .intermediateCatchEvent("waitForMessageCatchEvent")
       .message(MESSAGE_DOIT)
@@ -170,14 +170,14 @@ public class CallActivityMockExampleTest {
   @Test
   public void register_subprocesses_mocks_withVariables() {
     final BpmnModelInstance processWithSubProcess = Bpmn.createExecutableProcess(PROCESS_ID)
-      .camundaHistoryTimeToLive(1)
+      .operatonHistoryTimeToLive(1)
       .startEvent("start")
       .callActivity("call_subprocess")
-      .camundaOut("foo", "foo")
+      .operatonOut("foo", "foo")
       .calledElement(SUB_PROCESS_ID)
       .callActivity("call_subprocess2")
       .calledElement(SUB_PROCESS2_ID)
-      .camundaOut("bar", "bar")
+      .operatonOut("bar", "bar")
       .userTask(TASK_USERTASK)
       .endEvent("end")
       .done();
@@ -240,7 +240,7 @@ public class CallActivityMockExampleTest {
     String escalationEndId = "EscalationEnd";
 
     BpmnModelInstance processWithSubProcess = Bpmn.createExecutableProcess(PROCESS_ID)
-      .camundaHistoryTimeToLive(1)
+      .operatonHistoryTimeToLive(1)
       .startEvent("start")
       .callActivity(subprocessId)
       .calledElement(SUB_PROCESS_ID)
@@ -271,7 +271,7 @@ public class CallActivityMockExampleTest {
     String errorEndId = "ErrorEnd";
 
     BpmnModelInstance processWithSubProcess = Bpmn.createExecutableProcess(PROCESS_ID)
-      .camundaHistoryTimeToLive(1)
+      .operatonHistoryTimeToLive(1)
       .startEvent("start")
       .callActivity(subprocessId)
       .calledElement(SUB_PROCESS_ID)
@@ -297,10 +297,10 @@ public class CallActivityMockExampleTest {
 
   private void prepareProcessWithOneSubprocess() {
     final BpmnModelInstance processWithSubProcess = Bpmn.createExecutableProcess(PROCESS_ID)
-      .camundaHistoryTimeToLive(1)
+      .operatonHistoryTimeToLive(1)
       .startEvent("start")
       .callActivity("call_subprocess")
-      .camundaOut("foo", "foo")
+      .operatonOut("foo", "foo")
       .calledElement(SUB_PROCESS_ID)
       .userTask(TASK_USERTASK)
       .endEvent("end")
