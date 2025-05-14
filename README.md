@@ -1,7 +1,7 @@
 # camunda-platform-7-mockito
 
 [![](https://img.shields.io/badge/Community%20Extension-An%20open%20source%20community%20maintained%20project-FF4700)](https://github.com/camunda-community-hub/community)
-[![Camunda 7.22](https://img.shields.io/badge/Camunda%20Version-7.22-orange.svg)]([https://github.com/holisticon#open-source-lifecycle](https://docs.camunda.org/manual/7.22/))
+[![Camunda 7.22](https://img.shields.io/badge/Camunda%20Version-7.23-orange.svg)]([https://github.com/holisticon#open-source-lifecycle](https://docs.camunda.org/manual/7.23/))
 ![](https://img.shields.io/badge/Compatible%20with-Camunda%20Platform%207-26d07c)
 [![](https://img.shields.io/badge/Lifecycle-Stable-brightgreen)](https://github.com/Camunda-Community-Hub/community/blob/main/extension-lifecycle.md#stable-)
 
@@ -60,7 +60,7 @@ Just include camunda-platform-7-mockito in the test scope of your project:
   <groupId>org.camunda.community.mockito</groupId>
   <artifactId>camunda-platform-7-mockito</artifactId>
   <scope>test</scope>
-  <version>7.22.0</version>
+  <version>7.23.0</version>
 </dependency>
 ```
 
